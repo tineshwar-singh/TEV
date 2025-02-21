@@ -45,130 +45,18 @@ if(closeIcon) {
 }
 
 
-
-
 // // To play intro only once...
-// var TEVIntro = document.getElementById("tev-intro");
-// var bodyTag = document.getElementsByTagName("body");
+var TEVIntro = document.getElementById("tev-intro");
+var bodyTag = document.getElementsByTagName("body");
 
-// const showIntro = setTimeout(intro, 10000);
-// function intro() {
-//     TEVIntro.style.display="none";
-//     bodyTag[0].style.overflow="auto";
-// }
+const showIntro = setTimeout(intro, 6000);
+function intro() {
+    // TEVIntro.style.display="none";
+    bodyTag[0].style.overflow="auto";
+}
 // //................................................//
 
-
-// //popup
-// const popup = document.querySelector('.popup');
-// const closeBtn = document.querySelector('.close-btn');
-// const largeImage = document.querySelector('.large-image');
-// const leftArrow = document.querySelector('.left-arrow');
-// const rightArrow = document.querySelector('.right-arrow');
-
-// const candidImages = [...document.querySelectorAll(".candid-image")];
-// const traditionalImages = [...document.querySelectorAll(".traditional-image")];
-
-// // console.log(candidImages[0][0].src);
-
-// // let index = 0;
-
-// // const updateImage = (i) => {
-// //     let path = candidImages[i].src;
-// //     console.log(path);
-// //     largeImage.src = path;
-// //     index = i;
-// // }
-
-// closeBtn.addEventListener('click', () => {
-//     popup.classList.toggle('active');
-//     bodyTag[0].style.overflow="auto";
-// })
-
-// leftArrow.addEventListener('click', () => {    
-//     if(index > 0) {
-//         updateImage(index - 1);
-//     } else {
-//         updateImage(candidImages.length - 1);
-//     }
-// })
-
-// rightArrow.addEventListener('click', () => {
-//     if(index < candidImages.length - 1) {
-//         updateImage(index + 1);
-//     } else {
-//         updateImage(index = 0);
-//     }
-// })
-
-// candidImages.forEach((item, i) => {
-//     item.addEventListener('click', () => {
-//         updateImage(i);
-//         popup.classList.toggle('active');
-//         bodyTag[0].style.overflow="hidden";
-//     })
-// }) 
-
-
-
-
-// // -----------------------------------------------------
-
-
-// // var candidPhotography = document.querySelector('.candid-photography');
-// // var traditionalPhotography = document.querySelector('.traditional-photography');
-// // // var candidGallery = document.querySelector('.candid-gallery');
-// // // var traditionalGallery = document.querySelector('.traditional-gallery');
-
-// // candidPhotography.addEventListener('click', () => {
-// //     bodyTag[0].style.overflow="hidden";
-// //     popup.classList.toggle('active');
-
-// //     updateImage(0);
-
-// //     // setInterval(() => {
-// //     //     index++;
-// //     //     if(index > traditionalImages.length - 1) {
-// //     //         index=0;
-// //     //     }
-// //     //     updateImage(index);
-// //     // }, 1000);
-// // })
-
-// // traditionalPhotography.addEventListener('click', () => {
-// //     bodyTag[0].style.overflow="hidden";
-// //     popup.classList.toggle('active');
-
-// //     updateImage(0);
-
-// //     // setInterval(() => {
-// //     //     index++;
-// //     //     if(index > traditionalImages.length - 1) {
-// //     //         index=0;
-// //     //     }
-// //     //     updateImage(index);
-// //     // }, 1000);
-// // })
-
-
-// const sections = document.querySelectorAll('section[id]');
-
-// function scrollActive() {
-//     const scrollY = window.pageYOffset;
-
-//     sections.forEach(current => {
-//         const sectionHeight = current.offsetHeight;
-//         const sectionTop = current.offsetTop - 50;
-//         const sectionId = current.getAttribute('id');
-
-//         if((scrollY > sectionTop) && (scrollY <= sectionTop + sectionHeight)) {
-//             document.querySelector('.tev-header-details a[href*=' + sectionId + ']').classList.add('active-link');
-//         } else {
-//             document.querySelector('.tev-header-details a[href*=' + sectionId + ']').classList.remove('active-link');
-//         }
-//     })
-// }
-// window.addEventListener('scroll', scrollActive);
+// Slider JavaScript 
 
 var swiper = new Swiper(".mySwiper", {
   spaceBetween: 0,
@@ -189,6 +77,7 @@ const currentYear = document.querySelector('.current_year');
 const date = new Date();
 currentYear.innerText = date.getFullYear();
 
+
 /*==================== SHOW SCROLL UP ====================*/ 
 function scrollUp() {
   const scrollUp = document.getElementById('scroll-up');
@@ -203,7 +92,7 @@ window.addEventListener('scroll', scrollUp);
 
 
 
-// ================= sahre FORM data to whatsapp ==================
+// ================= share FORM data to whatsapp ==================
 const formData = document.querySelector(".tev_contact_form");
 const contactName = document.querySelector("#name");
 const contactNumber = document.querySelector("#contactNumber");
@@ -254,8 +143,6 @@ formData.addEventListener('submit', (event) => {
 
   console.log(contactData);
 
-  // formData.reset();
-
   sendWhatsAppMessage();
 
   function sendWhatsAppMessage() {
@@ -268,22 +155,80 @@ Function Date :- ${functionDate.value}
 Function Venue :- ${functionVenue.value}
 Function Coverage :- ${func}
 Contact Time :- ${cont}
-    `;
+`;
 
-    // Encode the message for a URL
-    const encodedMessage = encodeURIComponent(whatsappMessage);
+  // Encode the message for a URL
+  const encodedMessage = encodeURIComponent(whatsappMessage);
 
-    // Create a deep link to open WhatsApp with the pre-filled message
-    const whatsappLink = `https://wa.me/+917985584334/?text=${encodedMessage}`;
+  // Create a deep link to open WhatsApp with the pre-filled message
+  const whatsappLink = `https://wa.me/+917985584334/?text=${encodedMessage}`;
 
-    // Open WhatsApp in a new tab or window
-    window.open(whatsappLink, '_blank');
-  }
+  // Open WhatsApp in a new tab or window
+  window.open(whatsappLink, '_blank');
+}
 
-// })
-
-
-
-// console.log(contactData);
+  formData.reset();
+  alert("It will redirect to your whatsapp...!!!")
 }
 )
+
+/*==================== DARK LIGHT THEME ====================*/ 
+const themeButton = document.getElementById('theme-button');
+const darkTheme = 'dark-theme';
+const iconTheme = 'fa-moon';
+
+// Previously selected topic (if user selected)
+const selectedTheme = localStorage.getItem('selected-theme');
+const selectedIcon = localStorage.getItem('selected-icon');
+
+// We obtain the current theme that the interface has by validating the dark-theme class
+const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light';
+const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'fa-moon' : 'fa-sun';
+
+// We validate if the user previously chose a topic
+if (selectedTheme) {
+  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the dark
+  document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme);
+  themeButton.classList[selectedIcon === 'fa-moon' ? 'add' : 'remove'](iconTheme);
+}
+
+// Activate / deactivate the theme manually with the button
+themeButton.addEventListener('click', () => {
+    // Add or remove the dark / icon theme
+    document.body.classList.toggle(darkTheme);
+    themeButton.classList.toggle(iconTheme);
+    // We save the theme and the current icon that the user chose
+    localStorage.setItem('selected-theme', getCurrentTheme());
+    localStorage.setItem('selected-icon', getCurrentIcon());
+})
+
+
+const galleryImages = document.querySelectorAll(".tev_gallery_img");
+const closeButton = document.querySelector(".closebtn");
+const expandedImg = document.getElementById("expandedImg");
+const imageViewer = document.querySelector(".imageViewer");
+const imageFrame = document.querySelector(".imageFrame");
+
+galleryImages.forEach((allImages) => {
+  allImages.addEventListener('click', () => {
+
+    if (allImages.className[4] == 'l') {
+      expandedImg.classList.add('tev_imageViewer_landscape')
+    } else if (allImages.className[4] == 'p') {
+      expandedImg.classList.add('tev_imageViewer_portrait')
+    }
+    imageFrame.parentElement.style.display = "block";
+    expandedImg.src = allImages.src;
+ })
+})
+
+closeButton.addEventListener('click', () => {
+  imageFrame.parentElement.style.display = "none";
+
+  if (expandedImg.className[16] == 'l') {
+    expandedImg.classList.remove('tev_imageViewer_landscape')
+  } else if (expandedImg.className[16] == 'p') {
+    expandedImg.classList.remove('tev_imageViewer_portrait')
+  }
+
+})
