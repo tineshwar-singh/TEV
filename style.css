@@ -526,13 +526,13 @@ li {
     color: var(--first-color);
 }
 
-.tev_packages_section_cards {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* contact section  */
+
+iframe {
+    height: 15rem;
+    width: 100%;
+    margin-bottom: 2rem;
 }
- 
-/* Contact Section */
 
 .tev_contact_section {
     margin-bottom: 2rem;
@@ -654,6 +654,7 @@ li {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    /* gap: 10px; */
     margin: 2rem 0;
     width: 100%;
 }
@@ -695,6 +696,22 @@ li {
 .tev_videoLink:hover .tev_videoBlur {
     display: flex;
 }
+
+
+/* @media (max-width: 800px) {
+    .tev_gallery_column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  } */
+  
+  /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+  /* @media (max-width: 600px) {
+    .tev_gallery_column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  } */
 
 /* ------ footer section css starts ----- */
 
@@ -957,8 +974,10 @@ tr>td:nth-child(1) {
     #expandedImg {
         padding: 3rem;
     }
+    /* .tev_imageViewer_landscape, */
     .tev_imageViewer_portrait {
         height: 100%;
+        /* width: auto; */
     }
 }
   
@@ -1093,6 +1112,7 @@ tr>td:nth-child(1) {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        /* gap: 10rem; */
     }
     .tev_contact_section {
         display: flex;
@@ -1110,6 +1130,12 @@ tr>td:nth-child(1) {
         transform: scale(1.2);
         transition: 0.2s;
     }
+    /* .tev_footer_section_content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 10rem;
+    } */
     .tev_videoLink {
         width: 32.9%;
     }
